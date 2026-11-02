@@ -1,0 +1,19 @@
+LIBRARY atracodec
+EXPORTS
+    atracodec_version
+    atracodec_profile_count
+    atracodec_profile_at
+    atracodec_encode_pcm16
+    atracodec_decode_pcm16
+    atracodec_free
+    atracodec_last_error
+    atracodec_encoder_create
+    atracodec_encoder_write
+    atracodec_encoder_finish
+    atracodec_encoder_destroy
+    atracodec_decoder_create
+    atracodec_decoder_write
+    atracodec_decoder_finish
+    atracodec_decoder_info
+    atracodec_decoder_destroy
+    atracodec_stream_last_error

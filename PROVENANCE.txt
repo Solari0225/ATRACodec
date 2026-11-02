@@ -1,0 +1,37 @@
+ATRACodec 0.5.0-test1 implementation provenance / 实现来源
+
+算法来自Sony官方组件静态分析及自有合成输入上的有界运行观察。未参考或链接
+AtracDEnc、FFmpeg或其他第三方ATRAC解码器。之前自编且通过Sony验收的数学模块
+和数表保持不变，新流接口复用其有状态块处理而非调用原版组件。
+Algorithms derive from Sony official artifacts and bounded owned-input runtime
+observations. No AtracDEnc/FFmpeg/third-party decoder implementation is referenced
+or linked. Audited own Sony-derived math/tables remain unchanged.
+
+Oracle TraConv.exe SHA256:
+88622173b1a7c91fc38ceedc846a59c8f7593515183550d897811f53c293d993
+Sony组件只作为研究验收oracle；产物不需要Sony安装、REA、模拟器或Python。
+Sony components are research oracles only,not distribution/runtime dependencies.
+
+未加密OMA头[12,32)沿用0.4规范化归零。Sony这段含每文件变化数据，未强行当作
+profile常量；不宣称未经元数据规范化的官方整文件逐字节相同。音频数据与PCM
+分别校验。新空AAL保留实测tail F与负单块时长的u32回绕行为。
+Unencrypted EA3 header bytes[12,32) retain the0.4zero normalization. Per-file
+varying bytes are not profile constants. Raw Sony files are not claimed wholly
+byte-identical before metadata normalization. Audio payload/PCM are checked
+separately. Empty AAL reproduces observed full-frame tail and u32 duration wrap.
+
+GUI使用Win32/AppKit系统控件，macOS的.tbd是少量系统导入符号的构建描述，不是
+替代库或分发Apple SDK。包内不会带这些桩作运行依赖。
+GUI uses native Win32/AppKit. Minimal .tbd import descriptions support cross-links;
+they are build files,not runtime replacement libraries or a redistributed SDK.
+
+支持范围固定为44.1kHz、双声道、16bit与所列22档。Mac完成交叉构建和链接；
+未在本机Mac运行。GUI从未由自动测试启动，用户自行操作，Walkman实机未代测。
+Scope is the declared22default stereo44100Hz PCM16profiles. macOS is cross-built
+and linked,not natively executed. Automated tests never launch/control GUI.
+The user performs GUI and Walkman hardware validation.
+
+File-format primary references / 文件格式主来源:
+https://tech.ebu.ch/docs/tech/tech3306v1_1.pdf
+https://learn.microsoft.com/en-us/windows/win32/xaudio2/resource-interchange-file-format--riff-
+Apple/Microsoft GUI references: product/gui/references.json.

@@ -1,0 +1,73 @@
+ATRACodec 0.5.0-test1 C API / 命令行
+
+范围 / Scope: unencrypted OMA, PCM16 stereo44100Hz; ATRAC3 66/105/132,
+ATRAC3plus48/64/96/128/160/192/256/320/352, AAL3/132, AALP全部九档核心。
+
+product/atracodec_stream.h新增10个C接口，共17个公开C导出。
+The stream header adds10C symbols;17public symbols are exported in total.
+
+encoder_create(format,bitrate,expected_frames,sink,user,&context)
+encoder_write(context,interleaved_PCM,frames)
+encoder_finish(context)
+encoder_destroy(context)
+
+decoder_create(pcm_sink,user,&context)
+decoder_write(context,OMA_bytes,size)
+decoder_finish(context)
+decoder_info(context,&info)
+decoder_destroy(context)
+stream_last_error()
+以上函数均有atracodec_前缀。采样帧是L/R一对，长度不是字节数。
+All names use the atracodec_ prefix. A sample frame is one L/R pair, not a byte.
+
+编码总帧数为uint64_t，开始时必须已知（WAV文件头可提供）。支持空输入；必须
+实际提交相同帧数再finish。未知总时长实时录音接口尚未提供。该约定不要求把
+PCM存入内存，也没有任意1GiB上限；AAL字段真实溢出会被拒绝。
+The encoder needs a known64-bit total frame count at creation. Feed exactly
+that count,then finish. Empty streams are supported. Unknown-duration live
+capture is not exposed. The known-length contract does not buffer the track.
+Real AAL duration/packet-field overflow is rejected;there is no arbitrary1GiB cap.
+
+解码输入可任意分块，ID3 metadata逐块跳过；输出是临时有效的交错signed16 PCM。
+回调应完整消费数据并返回0；非0即失败。回调可操作另一context，不得重入/销毁
+正在使用的同一context。重入会立即使流永久失败，不再继续输出回调。
+Arbitrary byte chunks are accepted. Metadata is skipped incrementally. Consume
+callback data before returning0;nonzero fails permanently. Calling another
+context from a callback is allowed. Reentering/destroying the active context
+fails immediately. Contexts may run concurrently;one context is not thread-safe.
+
+成功0，失败-1；decoder_info在完整EA3头尚未收到时返回1。错误UTF8文字为线程
+私有。失败后仅destroy；finish必须恰好成功调用一次，destroy不自动flush。
+A successful mutation returns0,error-1. decoder_info returns1 before a complete
+EA3 header. Error text is thread-local. Destroy after error;finish exactly once.
+Destroy does not flush. Floating controls/status are restored on return.
+
+普通ATRAC3长度max(core_count-1,0)*1024；普通plus长度max(core_count*2048-2416,0)。
+AAL按实际BLK末标记/末tail还原源长度，EA3的tail/count不作为长度或空流权威。
+AAL保留最多几个PCM块等待真实末尾，用有限额外发布延迟保证正确裁切；不声称其
+外部callback分块/发布时刻与Sony每一个外层filter完全相同。
+Lossy output lengths follow Sony timing,including tail padding. AAL source
+length follows actual BLK termination/tail,not EA3 count/tail hints. A few
+bounded tail blocks delay final publication. External callback chunk sizes
+and timing are not claimed identical to every Sony filter wrapper.
+
+旧product/atracodec.h内完整内存API保留兼容，它们仍会缓存整段输入/输出。
+CLI和GUI转换已改用stream API。旧encode帧数uint32_t不等于新的流接口限制。
+The legacy whole-buffer API remains available and still allocates complete
+buffers. CLI/GUI conversion uses the new stream API. Its64-bit count is distinct
+from the legacy encoder uint32_t sample-frame argument.
+
+CLI支持PCM RIFF/WAVE与RF64输入，解码根据实际长度生成RIFF或RF64，使用64位
+系统文件偏移。解码WAV预留JUNK块，完成后必要时改为ds64；因此WAV容器字节
+不要求与Sony相同，PCM必须一致。未知RF64额外超大chunk覆盖表不在当前范围。
+The CLI reads PCM RIFF/RF64 and writes RIFF or RF64 based on actual output size.
+A reserved JUNK chunk becomes ds64 when needed. WAV container bytes may differ
+from Sony;PCM must match. Additional RF64 oversized non-data chunk tables are
+outside this reader. Only the declared PCM audio configuration is supported.
+
+--progress输出stderr JSONlines；stdout为最终result JSON。--cancel-file PATH
+存在或SIGINT/SIGTERM会合作取消。输出先写同目录临时文件，只有成功后提交。
+默认禁止覆盖，--overwrite显式允许；错误/取消保留原目标文件。
+Progress JSONlines go to stderr,final result JSON to stdout. A cancel-file or
+handled interrupt cancels cooperatively. Output is staged beside its destination
+and committed on success;errors/cancellation preserve an existing destination.

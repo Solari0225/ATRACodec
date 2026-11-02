@@ -1,0 +1,89 @@
+{
+  "scope": "Public Apple/Microsoft ABI and native UI documentation only",
+  "sources": [
+    {
+      "topic": "Objective-C opaque types and BOOL",
+      "url": "https://raw.githubusercontent.com/apple-oss-distributions/objc4/main/runtime/objc.h"
+    },
+    {
+      "topic": "Runtime class creation and method registration",
+      "url": "https://raw.githubusercontent.com/apple-oss-distributions/objc4/main/runtime/runtime.h"
+    },
+    {
+      "topic": "Typed objc_msgSend/Super casts, struct/floating return differences",
+      "url": "https://raw.githubusercontent.com/apple-oss-distributions/objc4/main/runtime/message.h"
+    },
+    {
+      "topic": "Window convenience constructor",
+      "url": "https://developer.apple.com/documentation/appkit/nswindow/init(contentviewcontroller:)"
+    },
+    {
+      "topic": "Native button constructor",
+      "url": "https://developer.apple.com/documentation/appkit/nsbutton/init(title:target:action:)"
+    },
+    {
+      "topic": "Native checkbox constructor",
+      "url": "https://developer.apple.com/documentation/appkit/nsbutton/init(checkboxwithtitle:target:action:)"
+    },
+    {
+      "topic": "Native wrapping label",
+      "url": "https://developer.apple.com/documentation/appkit/nstextfield/init(wrappinglabelwithstring:)"
+    },
+    {
+      "topic": "Native popup constructor",
+      "url": "https://developer.apple.com/documentation/appkit/nspopupbutton/init(frame:pullsdown:)"
+    },
+    {
+      "topic": "Resize override argument",
+      "url": "https://developer.apple.com/documentation/appkit/nsview/setframesize(_:)"
+    },
+    {
+      "topic": "64-bit NSRect alias",
+      "url": "https://developer.apple.com/documentation/foundation/nsrect"
+    },
+    {
+      "topic": "NSSize alias",
+      "url": "https://developer.apple.com/documentation/foundation/nssize"
+    },
+    {
+      "topic": "Main-thread event delivery",
+      "url": "https://developer.apple.com/documentation/objectivec/nsobject-swift.class/performselector(onmainthread:with:waituntildone:)"
+    },
+    {
+      "topic": "Main-thread AppKit and worker autorelease pools",
+      "url": "https://developer.apple.com/library/archive/documentation/Cocoa/Conceptual/Multithreading/ThreadSafetySummary/ThreadSafetySummary.html"
+    },
+    {
+      "topic": "posix_spawn argv/environment/PID ownership",
+      "url": "https://developer.apple.com/library/archive/documentation/System/Conceptual/ManPages_iPhoneOS/man2/posix_spawn.2.html"
+    },
+    {
+      "topic": "Application bundle structure",
+      "url": "https://developer.apple.com/library/archive/documentation/CoreFoundation/Conceptual/CFBundles/BundleTypes/BundleTypes.html"
+    },
+    {
+      "topic": "Bundle executable/localization/metadata",
+      "url": "https://developer.apple.com/library/archive/documentation/General/Reference/InfoPlistKeyReference/Articles/CoreFoundationKeys.html"
+    },
+    {
+      "topic": "Explicit Windows executable and inherited handle allowlist",
+      "url": "https://learn.microsoft.com/en-us/windows/win32/api/processthreadsapi/nf-processthreadsapi-createprocessw"
+    },
+    {
+      "topic": "Owned Windows job lifetime",
+      "url": "https://learn.microsoft.com/en-us/windows/win32/api/jobapi2/nf-jobapi2-setinformationjobobject"
+    },
+    {
+      "topic": "Windows kill-on-job-close flag",
+      "url": "https://learn.microsoft.com/en-us/windows/win32/api/winnt/ns-winnt-jobobject_extended_limit_information"
+    },
+    {
+      "topic": "Cocoa multithreaded mode before POSIX/C++ workers",
+      "url": "https://developer.apple.com/library/archive/documentation/Cocoa/Conceptual/Multithreading/CreatingThreads/CreatingThreads.html"
+    },
+    {
+      "topic": "Darwin close-by-default spawn flag (also present in Zig bundled Darwin headers)",
+      "url": "https://raw.githubusercontent.com/apple-oss-distributions/xnu/main/bsd/sys/spawn.h"
+    }
+  ]
+}

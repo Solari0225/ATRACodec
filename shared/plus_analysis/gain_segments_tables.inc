@@ -1,0 +1,2 @@
+/* Exact16band original baseline numerical scale table only. */
+static const uint32_t gain_baseline_band_scale[16]={0x40000000u,0x3ff33333u,0x3ff33333u,0x3fe00000u,0x3fd33333u,0x3fd33333u,0x3fd33333u,0x3fd33333u,0x3fd33333u,0x3fd33333u,0x3fd33333u,0x3fd33333u,0x3fd33333u,0x3fd33333u,0x3fd33333u,0x3fd33333u};

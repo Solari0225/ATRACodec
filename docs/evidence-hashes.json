@@ -1,0 +1,88 @@
+{
+  "schema": 1,
+  "version": "0.5.0-test1",
+  "date": "2026-11-02",
+  "note": "Digests bind original private research records, not files claimed to be present in this repository. Public summaries omit local paths and raw captures.",
+  "records": {
+    "stream_encode/ACCEPTANCE.json": {
+      "sha256": "69244a5d5513377c4bc2141efe8041a0c4f90261cf1932a27bf56f0223194f0a",
+      "bytes": 2872
+    },
+    "stream_encode/source-closure.json": {
+      "sha256": "304e1c4405cbef0e84f025d0051978fcf8b1e308559d8c78e2c0d570375590bd",
+      "bytes": 39729
+    },
+    "stream_decode/verification-001.json": {
+      "sha256": "d0efff08538e15009f85ff13665675ed5568b9b45eb109e1f90e4232fd3b57ac",
+      "bytes": 581062
+    },
+    "stream_decode_qa/ACCEPTANCE.json": {
+      "sha256": "d7372c9ae3c4212ec4e3b9be644302abc92c051a4da2e5e9dabfcff57f5d0917",
+      "bytes": 2143
+    },
+    "cli/verification-001.json": {
+      "sha256": "b9ab5a8ae061c304c4134d4355b3260c07182153703007c48f3540244dfafe74",
+      "bytes": 9724
+    },
+    "native_authority/verification-001.json": {
+      "sha256": "69abb72ab4a80ebdad0e4c8115f0b6a4a8656bb13eff0be94b73fe5115f6bbba",
+      "bytes": 11836
+    },
+    "large/verification-001.json": {
+      "sha256": "ec2c291a5baf152fe529ac7cf4c0164a844fb4b8ccaa0798600427e49c0d840c",
+      "bytes": 4355
+    },
+    "large/native-verification-001.json": {
+      "sha256": "aa78d9747102cdb0bf0217196b6a31fb388e7e4014837749f3b6b1f77de038fa",
+      "bytes": 928
+    },
+    "gui/GUI-INTEGRATED-FINAL.json": {
+      "sha256": "340cee4df2985c4e220ac797efbfbdafda939e8b83cb224b4cdc418b3d6f5d8a",
+      "bytes": 10008
+    },
+    "gui/cmake-gui-verification.json": {
+      "sha256": "704c5ab7db186a5149a38f29e5b3e6a8b6fdd4b7831464ce2eaa3cf29c15ce5b",
+      "bytes": 22087
+    },
+    "clean/verification-001.json": {
+      "sha256": "523ec84c7a02f5df556686580e7b267f1eeb2ee8132e44b247226edea427d17f",
+      "bytes": 2400
+    },
+    "universal/universal-verification-001.json": {
+      "sha256": "1ea5538b04c0317606839bde177f78ce66677274e25ea729cc26bf0938c68b31",
+      "bytes": 33937
+    },
+    "binaries/verification-001.json": {
+      "sha256": "59fcb856627701e921f330ed368b7099ef018806083ef3a15d54cf6e53f05727",
+      "bytes": 65049
+    },
+    "file_format/verification-001.json": {
+      "sha256": "39de5785a86fdb815157c59368bb152a644aa559e91bb3e7a4b2e3a55724d8f9",
+      "bytes": 2049
+    },
+    "archive-smoke/verification-001.json": {
+      "sha256": "24c37907c06fdbaf575b36aa48729edbfaf285f2cde5968c66ff374e8f93eb06",
+      "bytes": 4181
+    },
+    "pipeline/ACCEPTANCE.json": {
+      "sha256": "e3175e4cf87035f65242245baeb3b35db3c9b791c3a4919c8a098aee0663653b",
+      "bytes": 25426
+    },
+    "pipeline/EVIDENCE-HASHES.json": {
+      "sha256": "a9d1e97fcbf8df99e2f17d13d09c5b57df5c23915c6e46b2a69715dfbc425328",
+      "bytes": 11610
+    },
+    "RELEASE.json": {
+      "sha256": "de631f80c0eeba60dc9ca6fff09e32dbf22393051143dfeb8a4761b878f0a131",
+      "bytes": 2833
+    },
+    "cli-only-delivery.json": {
+      "sha256": "bd5d5553cd739edba38f781bc80c6855035c6e8056487e3339961a211e3da8ca",
+      "bytes": 1055
+    },
+    "origin-audit/original-report.json": {
+      "sha256": "2715a31c25d6ce58cd51cbc5d319f3acff9141b295fb9ffc7edabd8e478397ff",
+      "bytes": 80040
+    }
+  }
+}

@@ -1,0 +1,116 @@
+{
+  "schema": 1,
+  "project": "ATRACodec",
+  "version": "0.5.0-test1",
+  "publication_date": "2026-11-02",
+  "license": "GPL-3.0-only",
+  "scope": {
+    "sample_rate": 44100,
+    "sample_bits": 16,
+    "channels": 2,
+    "container": "unencrypted OMA",
+    "profile_count": 22,
+    "targets": [
+      "windows-x64",
+      "macos-arm64",
+      "macos-x64"
+    ]
+  },
+  "comparison": {
+    "encoded_audio_payload": "identical within the recorded corpus",
+    "aal_pcm": "identical to source PCM within the recorded corpus",
+    "decoder_pcm": "identical to Sony reference within the recorded corpus",
+    "raw_whole_file_identity_claimed": false,
+    "normalization": [
+      "omit Sony ID3 prefix",
+      "zero EA3 bytes [12,32)"
+    ],
+    "universal_equivalence_claimed": false
+  },
+  "completed": {
+    "nonempty_encoder_cases": 880,
+    "encoder_case_shape": [
+      22,
+      10,
+      4
+    ],
+    "original_empty_encoder_profiles": 22,
+    "sony_reference_decoder_cases": 1046,
+    "original_length_authority_cases": 10,
+    "unhooked_native_pipeline_controls": 64,
+    "api_protocol_checks": 97,
+    "fenv_positive_checks": 176,
+    "fenv_error_groups": 8,
+    "fenv_failing_callback_checks": 48,
+    "independent_context_jobs": 88,
+    "concurrent_workers": 8,
+    "same_context_reentry_destroy_cases": 6,
+    "encoder_heap_runs": 44,
+    "encoder_tracked_cpp_heap_max_bytes": 515954,
+    "decoder_heap_runs": 44,
+    "decoder_tracked_cpp_heap_max_bytes": 70016,
+    "decoder_short_long_peak_growth_bytes": 0,
+    "heap_accounting_excludes": [
+      "fixed stack",
+      "CRT"
+    ],
+    "gui_helper_checks": 353,
+    "real_gui_cli_worker_cases": 45,
+    "clean_source_targets": 3,
+    "reproduced_static_archives": 3,
+    "universal_binaries_checked": 7,
+    "c11_consumer_crosslinks": 4,
+    "cmake_configure_build_install_targets": 3
+  },
+  "large_test": {
+    "profile": "aal3-132",
+    "pcm_bytes": 1073741828,
+    "stereo_frames": 268435457,
+    "source_sony_project_pcm_sha256": "fde2dd810211ff5ab289dc82b9f146d32d5ee9d81459bc500555b9c81fafefff",
+    "complete_audio_payload_sha256": "253cc5107f1fbea6240ba84b1e6b13c9029ff7285585e31a3138b38f2cd243c7",
+    "normalized_ea3_payload_sha256": "5c91ec416b4e32adc5991b464abfa0d6868fe51ef22ad2ccd3caff8152e48a9a",
+    "sparse_rf64_file_bytes": 4294967444,
+    "full_4gib_audio_conversion_tested": false
+  },
+  "provenance_audit": {
+    "original_source_files": 328,
+    "compared_code_header_table_files": 303,
+    "upstream_commit": "cb170709f836cb43dc0312455188c791159d81dc",
+    "reference_files_per_set": 117,
+    "raw_identical_files": 0,
+    "comment_whitespace_normalized_identical_files": 0,
+    "exact_contiguous_runs_of_at_least_80_tokens": 0,
+    "retained_own_aal_helpers": 18,
+    "limits": "Finite direct-copy fingerprints do not exhaust renaming, rewriting, all history, or prior ideas. Name strings remain as declarations and a historical JSON field."
+  },
+  "streaming": {
+    "cli_gui_use_incremental_api": true,
+    "encoder_length_type": "uint64_t stereo frames",
+    "known_length_required": true,
+    "unknown_duration_encoding_exposed": false,
+    "legacy_api_retains_whole_buffers": true,
+    "arbitrary_1gib_limit": false,
+    "identical_outer_sony_callback_timing_claimed": false
+  },
+  "pending": [
+    "native macOS execution",
+    "manual GUI operation",
+    "Walkman hardware playback"
+  ],
+  "excluded": [
+    "encrypted OMA",
+    "mono",
+    "24-bit PCM",
+    "sample rates other than 44100 Hz",
+    "exhaustive hostile-input validation",
+    "all linked-binary reproducibility"
+  ],
+  "baseline": {
+    "source_manifest_sha256": "8e40e2cedafba3bf8b1892d504ae80d08cc533cb375c207761e3424cecb2c9ef",
+    "sources_json_sha256": "31bc47e5ed4819827a617dc94982b705af3ece099040e9237d7243fa22da1af8",
+    "compiled_inputs": 316,
+    "codec_cli_example_inputs": 296,
+    "gui_inputs": 20,
+    "original_source_zip_sha256": "890770fc39e103d0ccf9896375f0877dfcd88ccd57c6c25243dd3572d225b967"
+  }
+}
